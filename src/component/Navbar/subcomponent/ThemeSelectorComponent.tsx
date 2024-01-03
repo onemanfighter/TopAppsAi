@@ -7,7 +7,7 @@ export default function ThemeSelectorComponent(
   props: IThemeSelectorComponentProps
 ) {
   return (
-    <div className="dropdown ">
+    <div className="dropdown drop-shadow-xl">
       <div tabIndex={0} role="button" className="btn m-1">
         Theme
         <svg

@@ -1,47 +1,16 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import ThemeSelectorComponent from "./ThemeSelectorComponent";
+import SearchComponent from "../../SearchComponent/SearchComponent";
 
 export interface IEndNavComponentProps {}
 
 export default function EndNavComponent(props: IEndNavComponentProps) {
-  const [search, setSearch] = useState("");
-  const [showSearch, setShowSearch] = useState(false);
   return (
     <div className="navbar-end">
-      {showSearch && (
-        <motion.input
-          type="text"
-          placeholder={"Search AI Apps"}
-          className="input-sm w-full max-w-xs mr-2"
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-        />
-      )}
-      <button
-        className={`btn btn-ghost btn-circle hover:scale-110 ml-1 drop-shadow-lg aria-pressed:scale-95 ${
-          showSearch && " bg-primary"
-        }`}
-        onClick={() => {
-          setShowSearch(!showSearch);
-        }}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-          />
-        </svg>
-      </button>
+      <div className="dropdown">
+        <SearchComponent />
+      </div>
       <button className="btn btn-ghost btn-circle hover:scale-110 drop-shadow-lg mx-1 aria-pressed:scale-95">
         <div className="indicator">
           <span className="indicator-item badge badge-accent"></span>

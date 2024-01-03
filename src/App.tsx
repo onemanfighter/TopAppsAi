@@ -3,6 +3,7 @@ import NavbarComponent from "./component/Navbar/NavbarComponent";
 import FooterComponent from "./component/Footer/FooterComponent";
 import { useEffect, useState } from "react";
 import { ThemeType } from "./theme/Theme";
+import { MotionLine } from "./component/ProgressBar/MotionLine";
 
 /**
  * Component defintion for the App component.
@@ -24,7 +25,8 @@ function App() {
 
   return (
     <div>
-      <div>
+      <div className="sticky top-0 z-50 flex-col flex">
+        <MotionLine />
         <NavbarComponent />
       </div>
       <div>

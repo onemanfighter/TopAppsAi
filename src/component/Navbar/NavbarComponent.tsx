@@ -1,43 +1,11 @@
 import { NavLink } from "react-router-dom";
-import { motion } from "framer-motion";
-import { useRef, useState } from "react";
-import { useDimensions } from "./customhook/use-dimension";
+import { useState } from "react";
 import EndNavComponent from "./subcomponent/EndNavComponent";
 
 /**
  * Proptypes for the Navbar component
  */
 export interface INavBarProps {}
-
-const variants = {
-  open: (height = 1000) => ({
-    clipPath: `circle(${height * 2 + 500}px at 40px 40px)`,
-    transition: {
-      type: "spring",
-      stiffness: 20,
-      restDelta: 2,
-    },
-  }),
-  closed: {
-    clipPath: "circle(30px at 40px 40px)",
-    transition: {
-      delay: 0.5,
-      type: "spring",
-      stiffness: 400,
-      damping: 40,
-    },
-  },
-};
-
-const Path = (props: any) => (
-  <motion.path
-    fill="transparent"
-    strokeWidth="3"
-    stroke="hsl(0, 0%, 18%)"
-    strokeLinecap="round"
-    {...props}
-  />
-);
 
 /**
  * Component definition for the Navbar component
@@ -47,93 +15,116 @@ const Path = (props: any) => (
  */
 export default function NavbarComponent(props: INavBarProps) {
   const [open, setOpen] = useState(false);
-  const containerRef = useRef(null);
-  const { height } = useDimensions(containerRef);
+
   return (
-    <div className="navbar sticky drop-shadow-lg bg-primary">
+    <div className="navbar drop-shadow-lg bg-base-200">
       <div className="navbar-start">
-        <div className="dropdown">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle scale:105 hover:scale-110 drop-shadow-lg aria-pressed:scale-95"
-            onClick={() => {
-              setOpen(!open);
-            }}
-          >
-            <svg width="23" height="23" viewBox="0 0 23 23">
-              <Path
-                variants={{
-                  closed: { d: "M 2 2.5 L 20 2.5" },
-                  open: { d: "M 3 16.5 L 17 2.5" },
-                }}
-              />
-              <Path
-                d="M 2 9.423 L 20 9.423"
-                variants={{
-                  closed: { opacity: 1 },
-                  open: { opacity: 0 },
-                }}
-                transition={{ duration: 0.1 }}
-              />
-              <Path
-                variants={{
-                  closed: { d: "M 2 16.346 L 20 16.346" },
-                  open: { d: "M 3 2.5 L 17 16.346" },
-                }}
-              />
-            </svg>
-          </div>
-          <motion.ul
-            tabIndex={0}
-            className={`menu menu-sm dropdown-content mt-1 z-50 p-2 shadow w-52 bg-primary ${
-              open ? "block" : "hidden"
-            }`}
-            animate={open ? "open" : "closed"}
-            ref={containerRef}
-            custom={height}
-            variants={variants}
-          >
-            <li>
-              <NavLink
-                to=""
-                className="text-lg m-1 px-2 py-1 bg-secondary text-secondary-content"
+        <div className="drawer">
+          <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+          <div className="btn btn-ghost btn-circle scale:105 hover:scale-110 drop-shadow-lg aria-pressed:scale-95">
+            <label
+              htmlFor="my-drawer-2"
+              onClick={() => {
+                setOpen(!open);
+              }}
+              className="btn btn-circle swap swap-rotate drawer-button"
+            >
+              {/* hamburger icon */}
+              <svg
+                className="swap-off fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 512 512"
               >
-                Homepage
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="top" className="text-lg  m-1 px-2 py-1">
-                Top
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="category" className="text-lg  m-1 px-2 py-1">
-                Category
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="blog" className="text-lg m-1 px-2 py-1">
-                Blog
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="about" className="text-lg">
-                NewsFeed
-              </NavLink>
-            </li>
-          </motion.ul>
+                <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
+              </svg>
+
+              {/* close icon */}
+              <svg
+                className="swap-on fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 512 512"
+              >
+                <polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
+              </svg>
+            </label>
+          </div>
+          <SideDrawer />
         </div>
       </div>
-      <div className="navbar-center">
-        <NavLink className="btn btn-ghost text-xl" to={""}>
+      <div className="navbar-center drop-shadow-xl p-1">
+        <NavLink className="text-xl" to={""}>
           <img
             src={require("../../assets/image/logo-no-background.png")}
-            className="h-12 fill-neutral-content"
+            className="h-12 md:h-14 xl:h-16 fill-neutral-content"
           />
         </NavLink>
       </div>
       <EndNavComponent />
+    </div>
+  );
+}
+
+/**
+ * Return functional component for Side drawar.
+ *
+ * @returns The SideDrawer component.
+ */
+function SideDrawer() {
+  return (
+    <div className="drawer-side z-50">
+      <label
+        htmlFor="my-drawer-2"
+        aria-label="close sidebar"
+        className="drawer-overlay"
+      ></label>
+      <ul
+        className={`menu menu-sm dropdown-content hmt-1 h-screen shadow w-64 glass text-primary-content`}
+      >
+        <li>
+          <NavLink
+            to=""
+            className=" text-lg m-2 px-2 py-1 outline-primary outline text-primary bg-base-300"
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="top"
+            className="text-lg m-2 px-2 py-1 outline-primary outline text-primary bg-base-300"
+          >
+            Top
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="category"
+            className="text-lg m-2 px-2 py-1 outline-primary outline text-primary bg-base-300"
+          >
+            Category
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="blog"
+            className="text-lg m-2 px-2 py-1 outline-primary outline text-primary bg-base-300"
+          >
+            Blog
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="newsfeed"
+            className="text-lg m-2 px-2 py-1 outline-primary outline text-primary bg-base-300"
+          >
+            NewsFeed
+          </NavLink>
+        </li>
+      </ul>
     </div>
   );
 }
