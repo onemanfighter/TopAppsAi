@@ -12,7 +12,7 @@ export interface IFooterComponentProps {}
 export default function FooterComponent(props: IFooterComponentProps) {
   return (
     <div>
-      <footer className="footer p-10 bg-base-200 text-base-content z-0">
+      <footer className="footer p-10 bg-base-200 text-base-content z-50">
         <nav>
           <header className="footer-title">Services</header>
           <a className="link link-hover">Branding</a>

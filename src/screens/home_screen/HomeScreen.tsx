@@ -1,3 +1,5 @@
+import MainSearchComponent from "../../component/MainSearchComponent/MainSearchComponent";
+
 /**
  * Proptypes for the home screen component.
  */
@@ -55,10 +57,12 @@ function HeroComponent() {
 function ContentComponent() {
   return (
     <div
-      className="min-h-screen -m-36 bg-base-300 z-20 drop-shadow-2xl"
+      className="min-h-screen -mt-36 bg-base-300"
       style={{
         borderRadius: "0% 100% 0% 100% / 100% 11% 89% 0%  ",
       }}
-    ></div>
+    >
+      <MainSearchComponent />
+    </div>
   );
 }
