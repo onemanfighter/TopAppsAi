@@ -22,7 +22,7 @@ export default function ThemeSelectorComponent(
       </div>
       <ul
         tabIndex={0}
-        className="dropdown-content z-[1] p-2 shadow-2xl bg-base-300 rounded-box w-52 start-0"
+        className="dropdown-content z-[1] p-2 shadow-2xl bg-base-300 rounded-box start-0"
       >
         <li>
           <input
