@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import EndNavComponent from "./subcomponent/EndNavComponent";
+import { MotionLine } from "../ProgressBar/MotionLine";
 
 /**
  * Proptypes for the Navbar component
@@ -17,11 +18,12 @@ export default function NavbarComponent(props: INavBarProps) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="navbar drop-shadow-lg bg-base-200">
+    <div className="navbar drop-shadow-lg bg-base-200 md:mx-auto">
+      <MotionLine />
       <div className="navbar-start">
-        <div className="drawer">
+        <div className="drawer block md:hidden">
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-          <div className="btn btn-ghost btn-circle scale:105 hover:scale-110 drop-shadow-lg aria-pressed:scale-95">
+          <div className="  btn btn-ghost btn-circle scale:105 hover:scale-110 drop-shadow-lg aria-pressed:scale-95">
             <label
               htmlFor="my-drawer-2"
               onClick={() => {
@@ -55,7 +57,7 @@ export default function NavbarComponent(props: INavBarProps) {
           <SideDrawer />
         </div>
       </div>
-      <div className="navbar-center drop-shadow-xl p-1">
+      <div className=" navbar-start md:navbar-center drop-shadow-xl p-1">
         <NavLink className="text-xl" to={""}>
           <img
             src={require("../../assets/image/logo-no-background.png")}
@@ -63,6 +65,7 @@ export default function NavbarComponent(props: INavBarProps) {
           />
         </NavLink>
       </div>
+      <TopAppBarNavigation />
       <EndNavComponent />
     </div>
   );
@@ -75,7 +78,7 @@ export default function NavbarComponent(props: INavBarProps) {
  */
 function SideDrawer() {
   return (
-    <div className="drawer-side z-50">
+    <div className="block md:hidden drawer-side z-50">
       <label
         htmlFor="my-drawer-2"
         aria-label="close sidebar"
@@ -84,47 +87,63 @@ function SideDrawer() {
       <ul
         className={`menu menu-sm dropdown-content hmt-1 h-screen shadow w-64 glass text-primary-content`}
       >
-        <li>
-          <NavLink
-            to=""
-            className=" text-lg m-2 px-2 py-1 outline-primary outline text-primary bg-base-300"
-          >
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="top"
-            className="text-lg m-2 px-2 py-1 outline-primary outline text-primary bg-base-300"
-          >
-            Top
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="category"
-            className="text-lg m-2 px-2 py-1 outline-primary outline text-primary bg-base-300"
-          >
-            Category
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="blog"
-            className="text-lg m-2 px-2 py-1 outline-primary outline text-primary bg-base-300"
-          >
-            Blog
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="newsfeed"
-            className="text-lg m-2 px-2 py-1 outline-primary outline text-primary bg-base-300"
-          >
-            NewsFeed
-          </NavLink>
-        </li>
+        <SideBarNavLink to="" title="Home" />
+        <SideBarNavLink to="top" title="Top" />
+        <SideBarNavLink to="category" title="Category" />
+        <SideBarNavLink to="blog" title="Blog" />
+        <SideBarNavLink to="newsfeed" title="NewsFeed" />
       </ul>
+    </div>
+  );
+}
+
+function SideBarNavLink(props: { to: string; title: string }) {
+  return (
+    <li>
+      <NavLink
+        to={props.to}
+        className="text-lg m-2 px-2 py-1 outline-primary outline text-primary bg-base-300"
+      >
+        {props.title}
+      </NavLink>
+    </li>
+  );
+}
+
+/**
+ * Topappbar navigation component wrapping all the navigation link.
+ *
+ * @returns The TopAppBarNavigation component.
+ */
+function TopAppBarNavigation() {
+  return (
+    <div className=" navbar-center items-center hidden md:flex m-auto">
+      <div className="flex flex-row justify-center items-center">
+        <NavLink
+          className="btn btn-ghost btn-sm rounded-btn cursor-pointer"
+          to="top"
+        >
+          Top
+        </NavLink>
+        <NavLink
+          className="btn btn-ghost btn-sm rounded-btn cursor-pointer"
+          to="category"
+        >
+          Category
+        </NavLink>
+        <NavLink
+          className="btn btn-ghost btn-sm rounded-btn cursor-pointer"
+          to="blog"
+        >
+          Blog
+        </NavLink>
+        <NavLink
+          className="btn btn-ghost btn-sm rounded-btn cursor-pointer"
+          to="newsfeed"
+        >
+          NewsFeed
+        </NavLink>
+      </div>
     </div>
   );
 }

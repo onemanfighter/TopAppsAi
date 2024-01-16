@@ -45,7 +45,7 @@ export default function FooterComponent(props: IFooterComponentProps) {
           <p>
             TopAppsAi.com <br />
             <span className="text-xs">
-              © 2021 TopAppsAi.com. All rights reserved
+              © 2024 TopAppsAi.com. All rights reserved
             </span>
           </p>
         </aside>

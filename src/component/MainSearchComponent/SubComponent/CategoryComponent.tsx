@@ -38,7 +38,7 @@ interface CategoryComponentProps {
 
 function CategoryComponent(props: CategoryComponentProps) {
   return (
-    <div className=" p-3 m-3 text-lg border border-primary bg-secondary rounded-xl drop-shadow-xl hover:bg-green-500 cursor-pointer">
+    <div className=" p-3 m-3 text-lg border border-primary bg-neutral-content drop-shadow-xl rounded-xl hover:bg-green-500 cursor-pointer">
       {props.title}
     </div>
   );

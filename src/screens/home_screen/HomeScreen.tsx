@@ -1,3 +1,6 @@
+import CardComponent, {
+  ICardComponentProps,
+} from "../../component/CardComponent/CardComponent";
 import MainSearchComponent from "../../component/MainSearchComponent/MainSearchComponent";
 
 /**
@@ -42,7 +45,7 @@ function HeroComponent() {
           <h1 className="mb-5 text-5xl font-bold">TOP APPs POWERED BY AI</h1>
           <p className="mb-5">THE BEST AI POWERED WEB APPS</p>
           <button className="btn btn-primary">
-            <a href="#">Get Started</a>
+            <a href="#main_search_component">Get Started</a>
           </button>
         </div>
       </div>
@@ -63,6 +66,32 @@ function ContentComponent() {
       }}
     >
       <MainSearchComponent />
+      <CardListComponent />
+    </div>
+  );
+}
+
+const dummyData: ICardComponentProps = {
+  categories: ["category1", "category2", "category3", "category4"],
+  title: "title",
+  description: "description",
+  image: "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg",
+  tags: ["tag1", "tag2", "tag3", "tag4"],
+  path: "path",
+};
+
+/**
+ * Component definition for the card list component.
+ * @returns The CardListComponent component.
+ */
+function CardListComponent() {
+  return (
+    <div className=" m-2 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 pb-10">
+      <CardComponent data={dummyData} />
+      <CardComponent data={dummyData} />
+      <CardComponent data={dummyData} />
+      <CardComponent data={dummyData} />
+      <CardComponent data={dummyData} />
     </div>
   );
 }
