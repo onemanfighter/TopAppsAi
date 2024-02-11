@@ -1,17 +1,17 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import EndNavComponent from "./subcomponent/EndNavComponent";
-import { MotionLine } from "../ProgressBar/MotionLine";
+import { MotionLine } from "../progressbar/MotionLine";
+import EndNavComponent from "./sub-component/EndNavComponent";
 
 /**
- * Proptypes for the Navbar component
+ * Prop types for the Navbar component
  */
 export interface INavBarProps {}
 
 /**
  * Component definition for the Navbar component
  *
- * @param props The proptypes for the component
+ * @param props The prop types for the component
  * @returns The Navbar component
  */
 export default function NavbarComponent(props: INavBarProps) {
@@ -62,6 +62,7 @@ export default function NavbarComponent(props: INavBarProps) {
           <img
             src={require("../../assets/image/logo-no-background.png")}
             className="h-12 md:h-14 xl:h-16 fill-neutral-content"
+            alt={"Top app AI logo"}
           />
         </NavLink>
       </div>

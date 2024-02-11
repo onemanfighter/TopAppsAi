@@ -38,7 +38,7 @@ export default function CardComponent(props: IMainCardComponentProps) {
           </div>
           <img
             src={props.data.image}
-            alt="Placeholder image"
+            alt="Placeholder"
             className="rounded-t-lg absolute inset-0 z-0 w-full h-full object-cover"
             loading="lazy"
           />

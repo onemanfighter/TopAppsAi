@@ -1,6 +1,3 @@
-import * as React from "react";
-import { ThemeType } from "../../../theme/Theme";
-
 export interface IThemeSelectorComponentProps {}
 
 export default function ThemeSelectorComponent(

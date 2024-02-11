@@ -3,7 +3,6 @@ import {
   createBrowserRouter,
   createRoutesFromChildren,
 } from "react-router-dom";
-import App from "../App";
 import {
   Lazy404ScreenComponent,
   LazyAboutScreenComponent,
@@ -13,23 +12,24 @@ import {
   LazyDisclaimerScreenComponent,
   LazyFaqScreenComponent,
   LazyHomeScreenComponent,
-  LazyNewsfeedScreenComponent,
+  LazyFeedsScreenComponent,
   LazyPrivacyScreenComponent,
   LazyTermsScreenComponent,
   LazyTopAppsScreenComponent,
-} from "../Provider/LazyProvider/LazyScreens";
+} from "../providers/lazy-provider/LazyScreens";
+import RootScreen from "../screens/root_screen/RootScreen";
 
 /**
  * Router for the application.
  */
 export const AppRouter = createBrowserRouter(
   createRoutesFromChildren(
-    <Route element={<App />}>
+    <Route element={<RootScreen />}>
       <Route path="" element={<LazyHomeScreenComponent />} />
       <Route path="top" element={<LazyTopAppsScreenComponent />} />
       <Route path="category" element={<LazyCategoryScreenComponent />} />
       <Route path="blog" element={<LazyBlogScreenComponent />} />
-      <Route path="newsfeed" element={<LazyNewsfeedScreenComponent />} />
+      <Route path="feeds" element={<LazyFeedsScreenComponent />} />
       <Route path="details" element={<LazyDetailsScreenComponent />}>
         <Route path=":id" element={<LazyDetailsScreenComponent />} />
       </Route>

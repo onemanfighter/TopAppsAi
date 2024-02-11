@@ -1,7 +1,5 @@
-import { NavLink } from "react-router-dom";
-
 /**
- * Proptypes for the SearchComponent component.
+ * Props types for the SearchComponent component.
  */
 export interface ISearchComponentProps {}
 

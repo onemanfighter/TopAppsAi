@@ -1,7 +1,7 @@
 import CardComponent, {
   ICardComponentProps,
-} from "../../component/CardComponent/CardComponent";
-import MainSearchComponent from "../../component/MainSearchComponent/MainSearchComponent";
+} from "../../component/card/CardComponent";
+import MainSearchComponent from "../../component/main-search/MainSearchComponent";
 
 /**
  * Proptypes for the home screen component.

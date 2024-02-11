@@ -2,8 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import { RouterProvider } from "react-router-dom";
-import { AppRouter } from "./router/AppRouter";
+import App from "./App";
 
 /**
  * Render the App component to the root element.
@@ -13,7 +12,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={AppRouter} />
+    <App />
   </React.StrictMode>
 );
 reportWebVitals();

@@ -8,8 +8,8 @@ const TopAppsScreen = lazy(
 const CategoryScreen = lazy(
   () => import("../../screens/category_screen/CategoryScreen")
 );
-const NewsfeedScreen = lazy(
-  () => import("../../screens/newfeed_screen/NewsfeedScreen")
+const NewsFeedsScreen = lazy(
+  () => import("../../screens/feeds_screen/FeedsScreen")
 );
 const BlogScreen = lazy(() => import("../../screens/blog_screen/BlogScreen"));
 const DetailsScreen = lazy(
@@ -64,13 +64,13 @@ export function LazyCategoryScreenComponent() {
 }
 
 /**
- * Component definition for the lazy newsfeed screen component.
- * @returns The LazyNewsfeedScreenComponent component.
+ * Component definition for the lazy feeds screen component.
+ * @returns The LazyFeedsScreenComponent component.
  */
-export function LazyNewsfeedScreenComponent() {
+export function LazyFeedsScreenComponent() {
   return (
     <LazyComponentProvider>
-      <NewsfeedScreen />
+      <NewsFeedsScreen />
     </LazyComponentProvider>
   );
 }

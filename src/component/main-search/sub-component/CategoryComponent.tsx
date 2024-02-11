@@ -1,5 +1,3 @@
-interface IComponentWithCategoriesProps {}
-
 interface CategoryComponentProps {
   title: string;
   icon?: string;

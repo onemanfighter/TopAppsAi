@@ -1,7 +1,5 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
+import SearchComponent from "../../search-component/SearchComponent";
 import ThemeSelectorComponent from "./ThemeSelectorComponent";
-import SearchComponent from "../../SearchComponent/SearchComponent";
 
 export interface IEndNavComponentProps {}
 

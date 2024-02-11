@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ComponentWithCategories from "./SubComponent/CategoryComponent";
+import ComponentWithCategories from "./sub-component/CategoryComponent";
 
 /**
  * Proptypes for the MainSearchComponent component.
