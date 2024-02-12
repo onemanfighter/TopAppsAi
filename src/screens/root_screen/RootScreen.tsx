@@ -8,6 +8,8 @@ import NavbarComponent from "../../component/navbar/NavbarComponent";
 export interface IRootScreenProps {}
 
 export default function RootScreen(props: IRootScreenProps) {
+  console.log("screen render");
+
   return (
     <div>
       <div className="sticky top-0 z-50 flex-col flex">

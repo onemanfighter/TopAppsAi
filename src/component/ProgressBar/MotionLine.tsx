@@ -3,7 +3,7 @@ export const MotionLine = () => {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
-    damping: 30,
+    damping: 20,
     restDelta: 0.001,
   });
 

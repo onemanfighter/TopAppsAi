@@ -20,6 +20,7 @@ export default function NavbarComponent(props: INavBarProps) {
   return (
     <div className="navbar drop-shadow-lg bg-base-200 md:mx-auto">
       <MotionLine />
+
       <div className="navbar-start">
         <div className="drawer block md:hidden">
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
