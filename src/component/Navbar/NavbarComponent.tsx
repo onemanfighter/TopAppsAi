@@ -18,11 +18,10 @@ export default function NavbarComponent(props: INavBarProps) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="navbar drop-shadow-lg bg-base-200 md:mx-auto">
+    <div className="navbar drop-shadow-lg bg-base-200 ">
       <MotionLine />
-
-      <div className="navbar-start">
-        <div className="drawer block md:hidden">
+      <div className="xs:navbar-start  md:hidden ">
+        <div className="drawer block">
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
           <div className="  btn btn-ghost btn-circle scale:105 hover:scale-110 drop-shadow-lg aria-pressed:scale-95">
             <label
@@ -58,7 +57,7 @@ export default function NavbarComponent(props: INavBarProps) {
           <SideDrawer />
         </div>
       </div>
-      <div className=" navbar-start md:navbar-center drop-shadow-xl p-1">
+      <div className="xs:navbar-center md:navbar-start drop-shadow-xl">
         <NavLink className="text-xl" to={""}>
           <img
             src={require("../../assets/image/logo-no-background.png")}
@@ -113,14 +112,14 @@ function SideBarNavLink(props: { to: string; title: string }) {
 }
 
 /**
- * Topappbar navigation component wrapping all the navigation link.
+ * Top app bar navigation component wrapping all the navigation link.
  *
  * @returns The TopAppBarNavigation component.
  */
 function TopAppBarNavigation() {
   return (
-    <div className=" navbar-center items-center hidden md:flex m-auto">
-      <div className="flex flex-row justify-center items-center">
+    <div className="navbar-center items-start hidden md:block m-auto">
+      <div className="flex flex-row justify-start items-start">
         <NavLink
           className="btn btn-ghost btn-sm rounded-btn cursor-pointer"
           to="top"
